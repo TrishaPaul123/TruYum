@@ -1,0 +1,65 @@
+﻿@model IEnumerable<truYum_asp.Models.ViewModel>
+
+@{
+    ViewBag.Title = "MenuItemAdmin";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Menu Items</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddMenu","MenuItems")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.menu.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.menu.Price)            
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.menu.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.menu.dateOfLaunch)
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.menu.freeDelivery)
+        </th>
+        <th>
+            Action
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.menu.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.menu.Price)           
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.menu.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.menu.dateOfLaunch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.menu.freeDelivery)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.menu.Id })
+        </td>
+    </tr>
+}
+
+</table>
